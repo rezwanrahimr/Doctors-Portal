@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import'./info.css';
+import './info.css';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Info = () => {
     return (
+     
+       
         <div className=''>
             <div className="flex w-full px-12 text-white">
                 <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center bg-gradient-to-r from-primary to-secondary">
