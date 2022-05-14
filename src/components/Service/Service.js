@@ -5,7 +5,7 @@ const Service = () => {
         <div className='mx-12'>
             <h1 className='text-primary font-bold mt-10'>OUR SERVICE</h1>
             <h1 className='text-2xl'>Services We Provide</h1>
-            <div className='flex mt-10'>
+            <div className='flex mt-10 grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 <div>
                     <div class="card w-96 bg-base-100 shadow-xl ">
                         <div class="card-body">
@@ -22,7 +22,7 @@ const Service = () => {
                     </div>
                 </div>
                 <div>
-                    <div class="card w-96 bg-base-100 shadow-xl mx-4">
+                    <div class="card w-96 bg-base-100 shadow-xl ">
                         <div class="card-body">
 
                             <div className='flex justify-center mb-3'>

@@ -7,9 +7,9 @@ const Info = () => {
     return (
      
        
-        <div className=''>
-            <div className="flex w-full px-12 text-white">
-                <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center bg-gradient-to-r from-primary to-secondary">
+           
+            <div className="flex  gap-5 text-white grid grid-cols-1 lg:grid-cols-3 ">
+                <div className=" h-20 card bg-base-300 rounded-box place-items-center bg-gradient-to-r from-primary to-secondary">
                     <div className='flex'>
                     <div className='text-6xl text-white'>
                     <FontAwesomeIcon icon={faClock} />
@@ -24,7 +24,7 @@ const Info = () => {
                    
                 </div>
                 <div className="px-2"></div>
-                <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center bg-accent">
+                <div className=" h-20  card bg-base-300 rounded-box place-items-center bg-accent">
                     <div className='flex'>
                     <div className='text-6xl text-white'>
                     <FontAwesomeIcon icon={faLocationDot} />
@@ -39,7 +39,7 @@ const Info = () => {
                    
                 </div>
                 <div className="px-2"></div>
-                <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center bg-gradient-to-r from-primary to-secondary">
+                <div className="h-20 card bg-base-300 rounded-box place-items-center bg-gradient-to-r from-primary to-secondary">
                     <div className='flex'>
                     <div className='text-6xl text-white'>
                     <FontAwesomeIcon icon={faPhone} />
@@ -54,7 +54,7 @@ const Info = () => {
                    
                 </div>
             </div>
-        </div>
+       
     );
 };
 
