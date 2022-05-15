@@ -12,30 +12,30 @@ const SignUp = () => {
     const navigate = useNavigate();
     // SignInWith Google.
     const [signInWithGoogle] = useSignInWithGoogle(auth);
-   
+
 
     // create user with email and password.
     const [email, setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    console.log(email,password)
+    const [password, setPassword] = useState('');
+    console.log(email, password)
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      if(user){
-          toast('Account Create Successfuly')
-      }
-      if(user){
-          navigate("/home")
-      }
-       if(loading){
-           return <p>Loading...</p>
-      }
-      else if(error){
-          toast(error.message)
-      }
+    ] = useCreateUserWithEmailAndPassword(auth);
+    if (user) {
+        toast('Account Create Successfuly')
+    }
+    if (user) {
+        navigate("/home")
+    }
+    if (loading) {
+        return <p>Loading...</p>
+    }
+    else if (error) {
+        toast(error.message)
+    }
     return (
         <div className="hero min-h-screen ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -58,7 +58,7 @@ const SignUp = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button onClick={() => createUserWithEmailAndPassword(email,password)} className="btn btn-accent">Sign-up</button>
+                        <button onClick={() => createUserWithEmailAndPassword(email, password)} className="btn btn-accent">Sign-up</button>
                     </div >
                     <div>Already Have a Account?<span className='text-primary' onClick={() => navigate("/login")}>Login</span></div>
                     <div className="divider">OR</div>
