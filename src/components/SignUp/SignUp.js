@@ -53,9 +53,7 @@ const SignUp = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id='password' placeholder="password" className="input input-bordered" />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                       
                     </div>
                     <div className="form-control mt-6">
                         <button onClick={() => createUserWithEmailAndPassword(email, password)} className="btn btn-accent">Sign-up</button>

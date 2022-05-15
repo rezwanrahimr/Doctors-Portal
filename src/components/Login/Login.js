@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 
 const Login = () => {
     //   Login with email and password.
@@ -17,6 +18,11 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    // Forget password.
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth
+      );
     // call navigate in react router dom.
     const navigate = useNavigate();
 
@@ -53,7 +59,9 @@ const Login = () => {
                         </label>
                         <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id='password' placeholder="password" class="input input-bordered" />
                         <label class="label">
-                            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                            <a href="#"  class="label-text-alt link link-hover" onClick={async ()=>{
+                                await sendPasswordResetEmail(email); toast('Send Email Verification')
+                            }}>Forgot password?</a>
                         </label>
                     </div>
                     <div class="form-control mt-6">
