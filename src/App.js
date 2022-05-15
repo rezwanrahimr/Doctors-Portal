@@ -8,6 +8,7 @@ import Reviews from './components/Reviews/Reviews';
 import ContactUs from './components/ContactUs/ContactUs';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
        <Route path='/contactus' element={<ContactUs></ContactUs>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/appoin'></Route>
+       <Route path='/signup' element={<SignUp></SignUp>}></Route>
      </Routes>
-     <Footer></Footer>
+     
     </div>
   );
 }
