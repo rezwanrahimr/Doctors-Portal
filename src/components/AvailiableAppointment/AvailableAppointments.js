@@ -3,8 +3,11 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Service from './Service';
 import BookingModal from './BookingModal/BookingModal';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const AvailableAppointments = ({ date }) => {
+    const [user, loading] = useAuthState(auth);
     const [services, setServices] = useState([]);
     const [treatment,setTreatment] = useState(null);
     useEffect(() => {
@@ -21,7 +24,7 @@ const AvailableAppointments = ({ date }) => {
                 }
             </div>
             {
-                treatment && <BookingModal date={date} treatment={treatment} setTreatment={setTreatment}></BookingModal>
+                treatment && <BookingModal date={date} treatment={treatment} setTreatment={setTreatment} user={user}></BookingModal>
             }
         </div>
     );

@@ -37,7 +37,7 @@ const Contact = () => {
                   placeholder="subject"
                 />
               </div>
-              <textarea class="textarea textarea-bordered w-72" placeholder="Bio"></textarea>
+              <textarea className="textarea textarea-bordered w-72" placeholder="Bio"></textarea>
             <div>
             <button className="btn btn-primary bg-gradient-to-r from-primary to-secondary mt-5">Submit</button>
             </div>
