@@ -3,7 +3,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 
-const BookingModal = ({ treatment, date,setTreatment,user }) => {
+const BookingModal = ({ treatment, date,setTreatment,user,refetch }) => {
     const {_id,name,slots} = treatment;
     console.log(user)
    const formatedDate = format(date, 'PP');
@@ -32,8 +32,14 @@ const BookingModal = ({ treatment, date,setTreatment,user }) => {
         })
             .then(res => res.json())
             .then(data => {
-               console.log(data)
-               toast('Appointment Successfuly')
+                console.log(data)
+               if(data.success){
+                   toast(`Appoint is set ${formatedDate}at${slot}`)
+               }
+               else{
+                   toast.error(`Already have any Appointment ${data.booking?.date}at ${data.booking?.slot}`)
+               }
+               refetch();
                 setTreatment(null);
             });
     }

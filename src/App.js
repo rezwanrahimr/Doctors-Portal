@@ -1,17 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header'
+import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Appointment from './components/Appointment/Appointment';
 import Reviews from './components/Reviews/Reviews';
 import ContactUs from './components/ContactUs/ContactUs';
 import Login from './components/Login/Login';
-import Footer from './components/Footer/Footer';
 import SignUp from './components/SignUp/SignUp';
 import RequreAuth from './components/RequreAuth/RequreAuth';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './components/Dashboard/Dashboard';
+import MyAppointments from './components/Dashboard/MyAppointments';
+import MyReview from './components/Dashboard/MyReview';
 
 function App() {
   return (
@@ -27,6 +29,10 @@ function App() {
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/appoin'></Route>
        <Route path='/signup' element={<SignUp></SignUp>}></Route>
+       <Route path='/dashboard' element={<RequreAuth><Dashboard></Dashboard></RequreAuth>}>
+        <Route index element={<MyAppointments></MyAppointments>}> </Route>
+        <Route path='review' element={<MyReview></MyReview>}></Route>
+       </Route>
      </Routes>
      <ToastContainer />
     </div>

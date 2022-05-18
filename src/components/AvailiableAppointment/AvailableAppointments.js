@@ -5,16 +5,25 @@ import Service from './Service';
 import BookingModal from './BookingModal/BookingModal';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { useQuery} from 'react-query'
 
 const AvailableAppointments = ({ date }) => {
     const [user, loading] = useAuthState(auth);
-    const [services, setServices] = useState([]);
+    // const [services, setServices] = useState([]);
     const [treatment,setTreatment] = useState(null);
-    useEffect(() => {
-        fetch('http://localhost:5000/service')
-            .then(response => response.json())
-            .then(data => setServices(data));
-    }, [])
+   
+    const formattedDate = format(date, 'PP');
+    const {data:services,isLoading,refetch} = useQuery(['available',formattedDate],()=> fetch(`http://localhost:5000/available?date=${formattedDate}`)
+   .then(res => res.json()))
+
+    if(isLoading){
+        return <loading></loading>
+    }
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    //         .then(res => res.json())
+    //         .then(data => setServices(data));
+    // }, [formattedDate])
     return (
         <div>
             <h4 className='text-center text-secondary'>Available Appointments on {format(date, 'PP')}</h4>
@@ -24,7 +33,7 @@ const AvailableAppointments = ({ date }) => {
                 }
             </div>
             {
-                treatment && <BookingModal date={date} treatment={treatment} setTreatment={setTreatment} user={user}></BookingModal>
+                treatment && <BookingModal date={date} treatment={treatment} setTreatment={setTreatment} user={user} refetch={refetch}></BookingModal>
             }
         </div>
     );
