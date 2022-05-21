@@ -16,6 +16,7 @@ import MyAppointments from './components/Dashboard/MyAppointments';
 import MyReview from './components/Dashboard/MyReview';
 import Users from './components/Dashboard/Users';
 import History from './components/Dashboard/History'
+import RequreAdmin from './components/RequreAuth/RequireAdmin';
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
         <Route index element={<MyAppointments></MyAppointments>}> </Route>
         <Route path='review' element={<MyReview></MyReview>}></Route>
         <Route path='history' element={<History></History>}></Route>
-        <Route path='users' element={<Users></Users>}></Route>
+        <Route path='users' element={<RequreAdmin><Users></Users></RequreAdmin>}></Route>
        </Route>
      </Routes>
      <ToastContainer />
