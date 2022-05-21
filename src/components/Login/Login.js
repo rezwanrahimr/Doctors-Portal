@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     
@@ -35,16 +36,20 @@ const Login = () => {
       );
     // call navigate in react router dom.
     const navigate = useNavigate();
-
+        
     // Login with Google.
     const [signInWithGoogle,Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+
+    const [token] = useToken(user || Guser)
+
+    
     if (error || Gerror) {
         toast(error.message);
     }
     if (loading || Gloading) {
         return <Loading></Loading>
     }
-    if (user || Guser) {
+    if (token) {
         navigate(from, { replace: true });
 
     }
@@ -88,4 +93,4 @@ const Login = () => {
     );
 };
 
-export default Login; <h1>This is login page</h1>
+export default Login;

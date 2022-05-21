@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -30,10 +31,11 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [token] = useToken(user || Guser);
     if (user || Guser) {
         toast('Account Create Successfuly')
     }
-    if (user || Guser) {
+    if (token) {
         navigate("/home")
     }
     if (loading || Gloading) {

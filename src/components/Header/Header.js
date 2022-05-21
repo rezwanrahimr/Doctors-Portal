@@ -10,6 +10,7 @@ const Header = () => {
   // Signout mathod.
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken');
   };
 
   return (
